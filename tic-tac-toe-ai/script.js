@@ -32,7 +32,7 @@ function start() {
 function turnClick(event) {
     if (typeof board[event.target.id] === 'number') {
         turn(event.target.id, huPlayer);
-        if (!checkTie()) {
+        if (!checkWin(board, huPlayer) && !checkTie()) {
             turn(bestSpot(), aiPlayer);
         }
     }
@@ -83,7 +83,7 @@ function gameOver(gameWon) {
 function checkTie() {
     if (emptySquares(board).length === 0) {
         for (let i = 0; i < cells.length; i++) {
-            cells[i].style.backgroundColor = "green";
+            cells[i].style.backgroundColor = "aqua";
             cells[i].removeEventListener('click', turnClick, false);
         }
         declareWinner("Tie Game!");
