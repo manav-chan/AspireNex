@@ -14,12 +14,15 @@ const winCombos = [
 
 let huWins = 0;
 let aiWins = 0;
+let ties = 0;
 let minimaxFlag = false;
 const cells = document.querySelectorAll('.cell');
 
 start();
 
 function start() {
+    const table = document.querySelector("table");
+    table.removeEventListener('click', start, false);
     document.querySelector(".msg").style.display = "none";
     board = Array.from(Array(9).keys());
     for (let i = 0; i < cells.length; i++) {
@@ -29,18 +32,35 @@ function start() {
     }
 }
 
+function retry() {
+    resetScore();
+    start();
+}
+
+let isAITurn = false;
 function turnClick(event) {
-    if (typeof board[event.target.id] === 'number') {
+    if (isAITurn == false && typeof board[event.target.id] === 'number') {
         turn(event.target.id, huPlayer);
         if (!checkWin(board, huPlayer) && !checkTie()) {
-            turn(bestSpot(), aiPlayer);
+            isAITurn = true;
+            setTimeout(() => {
+                turn(bestSpot(), aiPlayer);
+                isAITurn = false;
+            }, 500);
         }
     }
 }
 
 function turn(cellId, player) {
     board[cellId] = player;
-    document.getElementById(cellId).innerText = player;
+    const cell = document.getElementById(cellId);
+    cell.innerText = player;
+    cell.classList.add('fade-in');
+
+    cell.addEventListener('animationend', () => {
+        cell.classList.remove('fade-in');
+    }, { once: true });
+
     let gameWon = checkWin(board, player);
     if (gameWon) gameOver(gameWon);
 }
@@ -83,7 +103,7 @@ function gameOver(gameWon) {
 function checkTie() {
     if (emptySquares(board).length === 0) {
         for (let i = 0; i < cells.length; i++) {
-            cells[i].style.backgroundColor = "aqua";
+            // cells[i].style.backgroundColor = "neon";
             cells[i].removeEventListener('click', turnClick, false);
         }
         declareWinner("Tie Game!");
@@ -100,19 +120,26 @@ function declareWinner(msg) {
         huWins++;
     } else if (msg === "You lose!") {
         aiWins++;
+    } else if (msg === "Tie Game!") {
+        ties++;
     }
-
     updateScore();
+    const table = document.querySelector("table");
+    setTimeout(() => {
+        table.addEventListener('click', start, false);
+    }, 1000);
 }
 
 function updateScore() {
-    document.querySelector(".score .hu").innerText = huWins;
-    document.querySelector(".score .ai").innerText = aiWins;
+    document.querySelector(".score-bar .hu").innerText = huWins;
+    document.querySelector(".score-bar .ai").innerText = aiWins;
+    document.querySelector(".score-bar .tie").innerText = ties;
 }
 
 function resetScore() {
     huWins = 0;
     aiWins = 0;
+    ties = 0;
     updateScore();
 }
 
