@@ -113,3 +113,12 @@ table tr td:last-child {
     cursor: pointer;
     font-size: 25px;
 }
+
+#aibtn {
+    color: black;
+    border-radius: 10px;
+    background-color: greenyellow;
+    border: none;
+    font-size: 15px;
+    padding: 12px;
+}
