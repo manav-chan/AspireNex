@@ -145,11 +145,15 @@ function resetScore() {
 
 function toggleAi() {
     const aiBtn = document.querySelector("#aibtn");
-    if (aiBtn.innerText.includes("Enable")) {
-        aiBtn.innerText = "Disable unbeatable AI";
+    if (aiBtn.innerText.includes("OFF")) {
+        aiBtn.innerText = "Unbeatable AI ON";
+        aiBtn.style.backgroundColor = "red";
+        aiBtn.style.color = "white";
         minimaxFlag = true;
     } else {
-        aiBtn.innerText = "Enable unbeatable AI";
+        aiBtn.innerText = "Unbeatable AI OFF";
+        aiBtn.style.backgroundColor = "greenyellow";
+        aiBtn.style.color = "black";
         minimaxFlag = false;
     }
 }
