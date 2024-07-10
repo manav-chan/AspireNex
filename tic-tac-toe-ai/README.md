@@ -3,7 +3,7 @@
    - Created the Tic-Tac-Toe game using HTML/CSS and Javascript.
    -  Implemented 2 modes for the computer to play it's turn:
       - Random mode: Computer will randomly select one of the free cells in the Tic-Tac-Toe grid and play it's turn thus enabling fairness in the game.
-      - MiniMax algorithm: Optimal algorithm that makes the computer unbeatable.
+      - MiniMax algorithm: Optimal algorithm that makes the computer unbeatable along with alpha beta pruning.
    
    ## MiniMax Algorithm
    The Minimax algorithm is a decision-making algorithm used in game theory, artificial intelligence, and computer science to find the optimal move for a player, assuming that the opponent is also playing optimally. It is widely used in two-player turn-based games such as Tic-Tac-Toe, Chess, and Go. How it works-
