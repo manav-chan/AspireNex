@@ -2,14 +2,27 @@
 
 ## Artifical Intelligence
 
-### Tic-Tac-Toe AI
+1. ### Tic-Tac-Toe AI
 
-1. Created the Tic-Tac-Toe game using HTML/CSS and Javascript.
-2. Implemented 2 modes for the computer to play it's turn
+- Created the Tic-Tac-Toe game using HTML/CSS and Javascript.
+-  Implemented 2 modes for the computer to play it's turn:
    - Random mode: Computer will randomly select one of the free cells in the Tic-Tac-Toe grid and play it's turn thus enabling fairness in the game.
    - MiniMax algorithm: Optimal algorithm that makes the computer unbeatable.
 
 #### MiniMax Algorithm
+The Minimax algorithm is a decision-making algorithm used in game theory, artificial intelligence, and computer science to find the optimal move for a player, assuming that the opponent is also playing optimally. It is widely used in two-player turn-based games such as Tic-Tac-Toe, Chess, and Go. How it works-
+- Tree Structure: The algorithm constructs a game tree, starting from the current board state and expanding down to terminal states (end of the game) by simulating all possible moves for both players.
+
+- Terminal States Evaluation: Each terminal state is evaluated to determine the score from the perspective of the maximizing player. Positive scores favor the maximizer, while negative scores favor the minimizer.
+
+- Minimax Decision: The algorithm recursively applies the following rules to determine the best move:
+
+- Maximizer's Move: When it's the maximizer's turn, it chooses the move that leads to the state with the maximum score.
+- Minimizer's Move: When it's the minimizer's turn, it chooses the move that leads to the state with the minimum score.
+- Pruning: Alpha-beta pruning is often used in conjunction with Minimax to reduce the number of nodes evaluated in the game tree. It does this by eliminating branches that cannot possibly influence the final decision.
+
+- Best Move Selection: Starting from the terminal states, the algorithm backtracks and selects the move that leads to the best possible outcome, taking into account that the opponent is also playing optimally.
+
 
 ```javascript
 function minimax(newBoard, player, alpha = -Infinity, beta = Infinity) {
@@ -75,3 +88,5 @@ function minimax(newBoard, player, alpha = -Infinity, beta = Infinity) {
     return moves[bestMove];
 }
 ```
+2. ### Image Captioning
+   
