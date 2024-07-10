@@ -13,6 +13,7 @@
 
 ```javascript
 function minimax(newBoard, player, alpha = -Infinity, beta = Infinity) {
+    // returns list of indices denoting empty cells on the board
     let availableSpots = emptySquares(newBoard);
     
     // base conditions
@@ -24,6 +25,7 @@ function minimax(newBoard, player, alpha = -Infinity, beta = Infinity) {
         return {score: 0};
     }
 
+    // recursively call for every possible move and store the score corresponding to each move in 'moves' list
     let moves = [];
     for (let i = 0; i < availableSpots.length; i++) {
         let move = {};
@@ -44,12 +46,13 @@ function minimax(newBoard, player, alpha = -Infinity, beta = Infinity) {
         newBoard[availableSpots[i]] = move.index;
         moves.push(move);
 
-        // alpha-beta pruning
+        // alpha-beta pruning to save computation time and memory
         if(beta <= alpha) {
             break;
         }
     }
 
+    // calculates best move on the basis of highest score for ai player, and lowest score for computer player
     let bestMove;
     if (player === aiPlayer) {
         let bestScore = -Infinity;
