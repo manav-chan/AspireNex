@@ -9,7 +9,7 @@
    - Random mode: Computer will randomly select one of the free cells in the Tic-Tac-Toe grid and play it's turn thus enabling fairness in the game.
    - MiniMax algorithm: Optimal algorithm that makes the computer unbeatable.
 
-### MiniMax Algorithm
+#### MiniMax Algorithm
 
 ```javascript
 function minimax(newBoard, player, alpha = -Infinity, beta = Infinity) {
