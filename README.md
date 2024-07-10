@@ -124,6 +124,7 @@
       ```terminal
       python app.py
       ```
+   7. Test application using images in sample_images
 
    ## GUI
    ![image](https://github.com/manav-chan/AspireNex/assets/71835184/1296ab46-0bf6-418e-b089-4c5569c23c06)
