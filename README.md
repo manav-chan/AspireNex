@@ -23,7 +23,7 @@
    
    - Best Move Selection: Starting from the terminal states, the algorithm backtracks and selects the move that leads to the best possible outcome, taking into account that the opponent is also playing optimally.
    
-   
+   Algorithm:
    ```javascript
    function minimax(newBoard, player, alpha = -Infinity, beta = Infinity) {
        // returns list of indices denoting empty cells on the board
@@ -89,4 +89,15 @@
    }
    ```
 2. ### Image Captioning
+   - Defined and trained an Image Caption Generator model on the Flickr 8K image dataset and achieved a BLEU-1 score of 0.546282 and BLEU-2 score of 0.320683.
+   - Used pretrained VGG16 model for image feature extraction after removing the last classification layer.
+   - Implemented Long Short-Term Memory Recurrent Neural Network layer in the model.
+   - Created a web server for hosting the web application using Python Flask.
+   - Created GUI using HTML, Javascript and Bootstrap.
+   
+   #### Model Architecture
+   ![model](https://github.com/manav-chan/AspireNex/assets/71835184/2df41241-fe5e-49b3-97ea-c8d984793c52)
+
+   
+
    
