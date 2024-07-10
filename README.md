@@ -88,7 +88,10 @@
        return moves[bestMove];
    }
    ```
-2. ### Image Captioning
+   #### GUI
+   ![image](https://github.com/manav-chan/AspireNex/assets/71835184/65032505-d278-4794-9ee9-fc06267c5bdd)
+
+3. ### Image Captioning
    - Defined and trained an Image Caption Generator model on the Flickr 8K image dataset and achieved a BLEU-1 score of 0.546282 and BLEU-2 score of 0.320683.
    - Used pretrained VGG16 CNNd model for image feature extraction after removing the last classification layer.
    - Implemented Long Short-Term Memory Recurrent Neural Network layer in the model.
